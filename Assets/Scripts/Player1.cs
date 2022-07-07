@@ -57,8 +57,12 @@ public class Player1 : MonoBehaviour
 
     void PlayerMoveKeyboard()
     {
-        movementX = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movementX, 0, 0) * Time.deltaTime * moveForce;
+        if (isGrounded)
+        {
+            movementX = Input.GetAxis("Horizontal");
+            //transform.position += new Vector3(movementX, 0, 0) * Time.deltaTime * moveForce;
+            rb.velocity = new Vector2(movementX * moveForce, rb.velocity.y);
+        }
     }
 
     void AnimatePlayer()

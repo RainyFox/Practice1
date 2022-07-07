@@ -1416,6 +1416,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1489,6 +1490,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f33a6c2305a764f998c321b317755e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: 0
+  maxX: 0
 --- !u!1 &534625440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,26 +2830,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1634067497657428801, guid: b8911a00460dafc48a94a4fc8545a188, type: 3}
-      propertyPath: jumpForce
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1634067497657428801, guid: b8911a00460dafc48a94a4fc8545a188, type: 3}
-      propertyPath: moveForce
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7187907461114271603, guid: b8911a00460dafc48a94a4fc8545a188, type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7187907461114271603, guid: b8911a00460dafc48a94a4fc8545a188, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7187907461114271603, guid: b8911a00460dafc48a94a4fc8545a188, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7187907461114271604, guid: b8911a00460dafc48a94a4fc8545a188, type: 3}
       propertyPath: m_RootOrder
       value: 1
