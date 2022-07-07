@@ -58,9 +58,9 @@ public class Player1 : MonoBehaviour
 
     void PlayerMoveKeyboard()
     {
+        movementX = Input.GetAxis("Horizontal");
         if (isGrounded)
         {
-            movementX = Input.GetAxis("Horizontal");
             //transform.position += new Vector3(movementX, 0, 0) * Time.deltaTime * moveForce;
             rb.velocity = new Vector2(movementX * moveForce, rb.velocity.y);
         }
@@ -82,10 +82,10 @@ public class Player1 : MonoBehaviour
         {
             anim.SetBool(WALK_ANIMATION, false);
         }
-        if (rb.velocity == Vector2.zero)
-        {
-            anim.SetBool(WALK_ANIMATION, false);
-        }
+        //if (rb.velocity == Vector2.zero)
+        //{
+        //    anim.SetBool(WALK_ANIMATION, false);
+        //}
         Debug.Log("Velocity: " + rb.velocity);
     }
     void PlayerJump()
