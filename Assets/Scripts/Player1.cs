@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//main branch
 public class Player1 : MonoBehaviour
 {
     #region Variables
@@ -78,6 +79,10 @@ public class Player1 : MonoBehaviour
             sr.flipX = true;
         }
         else
+        {
+            anim.SetBool(WALK_ANIMATION, false);
+        }
+        if (rb.velocity == Vector2.zero)
         {
             anim.SetBool(WALK_ANIMATION, false);
         }
