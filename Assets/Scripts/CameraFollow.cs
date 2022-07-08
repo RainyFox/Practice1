@@ -18,6 +18,8 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if(!player)
+            return;
         tempPos = transform.position;
         //constraint
         tempPos.x= Mathf.Min( Mathf.Max( player.position.x,minX),maxX) ;

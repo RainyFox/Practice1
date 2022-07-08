@@ -25,6 +25,9 @@ public class Player1 : MonoBehaviour
     private string GROUND_TAG = "Ground";
 
     private bool justJump = false;
+    private string JUMP_ANIMATION = "Jump";
+
+    private string MONSTERS_TAG = "Monsters";
     #endregion
     private void Awake()
     {
@@ -36,7 +39,7 @@ public class Player1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        anim.SetBool(JUMP_ANIMATION, false);
     }
 
     // Update is called once per frame
@@ -52,6 +55,7 @@ public class Player1 : MonoBehaviour
         if (justJump)
         {
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            anim.SetBool(JUMP_ANIMATION, true);
             justJump = false;
         }
     }
@@ -61,6 +65,7 @@ public class Player1 : MonoBehaviour
         movementX = Input.GetAxis("Horizontal");
         if (isGrounded)
         {
+            anim.SetBool(JUMP_ANIMATION, false);
             //transform.position += new Vector3(movementX, 0, 0) * Time.deltaTime * moveForce;
             rb.velocity = new Vector2(movementX * moveForce, rb.velocity.y);
         }
@@ -82,11 +87,6 @@ public class Player1 : MonoBehaviour
         {
             anim.SetBool(WALK_ANIMATION, false);
         }
-        //if (rb.velocity == Vector2.zero)
-        //{
-        //    anim.SetBool(WALK_ANIMATION, false);
-        //}
-        Debug.Log("Velocity: " + rb.velocity);
     }
     void PlayerJump()
     {
@@ -94,8 +94,6 @@ public class Player1 : MonoBehaviour
         {
             isGrounded = false;
             justJump = true;
-
-            Debug.Log("y velocity: " + rb.velocity.y);
         }
     }
 
@@ -105,7 +103,11 @@ public class Player1 : MonoBehaviour
         if (collision.gameObject.CompareTag(GROUND_TAG))
         {
             isGrounded = true;
-            //rb.velocity =  Vector2.zero;
+        }
+
+        if(collision.gameObject.CompareTag(MONSTERS_TAG))
+        {
+            Destroy(gameObject);
         }
     }
 }
