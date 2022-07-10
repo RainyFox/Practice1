@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4046505167951917632}
   - component: {fileID: 3946489007743833893}
   - component: {fileID: 2361785291613984031}
-  - component: {fileID: 780418414}
+  - component: {fileID: 5805063366664820188}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -155,7 +155,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &780418414
+--- !u!114 &5805063366664820188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3618735638147638226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7bb59d9c8627d4cb483e3feac02e65, type: 3}
+  m_Script: {fileID: 11500000, guid: 5de3305a387dfd94dbd9a7035312dd3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 10
