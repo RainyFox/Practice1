@@ -28,6 +28,8 @@ public class Player1 : MonoBehaviour
     private string JUMP_ANIMATION = "Jump";
 
     private string MONSTERS_TAG = "Monsters";
+    Character character = new Character(10);
+    float life;
     #endregion
     private void Awake()
     {
@@ -40,6 +42,7 @@ public class Player1 : MonoBehaviour
     void Start()
     {
         anim.SetBool(JUMP_ANIMATION, false);
+        life = character.Life;
     }
 
     // Update is called once per frame
@@ -69,10 +72,9 @@ public class Player1 : MonoBehaviour
 
         //Find direction
         Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y).normalized;
-      
+
         // make sure x, y is 1
-        direction = new Vector2(direction.x/Mathf.Abs(direction.x),direction.y/Mathf.Abs(direction.y));
-        Debug.Log(direction);
+        direction = new Vector2(direction.x / Mathf.Abs(direction.x), direction.y / Mathf.Abs(direction.y));
 
         leftClick = Input.GetMouseButton(0);
         if (0 < direction.x)
@@ -87,10 +89,9 @@ public class Player1 : MonoBehaviour
         if (isGrounded && leftClick)
         {
             anim.SetBool(JUMP_ANIMATION, false);
-            //TODO: set correct unit magnitude
             rb.velocity = new Vector2(direction.x * moveForce, rb.velocity.y);
         }
-        else if(isGrounded)
+        else if (isGrounded)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
@@ -124,9 +125,12 @@ public class Player1 : MonoBehaviour
             isGrounded = true;
         }
 
-        if(collision.gameObject.CompareTag(MONSTERS_TAG))
+        if (collision.gameObject.CompareTag(MONSTERS_TAG))
         {
-            Destroy(gameObject);
+            life -= 1;
+            Debug.Log(life);
+            if (life <= 0)
+                Destroy(gameObject);
         }
     }
 }
