@@ -12,7 +12,7 @@ public class Player1 : MonoBehaviour
     [SerializeField]
     private float jumpForce = 11f;
 
-    private float movementX;
+    bool leftClick;
 
     private Rigidbody2D rb;
 
@@ -62,26 +62,45 @@ public class Player1 : MonoBehaviour
 
     void PlayerMoveKeyboard()
     {
-        movementX = Input.GetAxis("Horizontal");
-        if (isGrounded)
+
+        //Change face direction
+        Vector2 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        //Find direction
+        Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y).normalized;
+      
+        // make sure x, y is 1
+        direction = new Vector2(direction.x/Mathf.Abs(direction.x),direction.y/Mathf.Abs(direction.y));
+        Debug.Log(direction);
+
+        leftClick = Input.GetMouseButton(0);
+        if (0 < direction.x)
+        {
+            sr.flipX = false;
+        }
+        else
+        {
+            sr.flipX = true;
+        }
+
+        if (isGrounded && leftClick)
         {
             anim.SetBool(JUMP_ANIMATION, false);
-            //transform.position += new Vector3(movementX, 0, 0) * Time.deltaTime * moveForce;
-            rb.velocity = new Vector2(movementX * moveForce, rb.velocity.y);
+            //TODO: set correct unit magnitude
+            rb.velocity = new Vector2(direction.x * moveForce, rb.velocity.y);
+        }
+        else if(isGrounded)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 
     void AnimatePlayer()
     {
-        if (0f < movementX)
+        if (leftClick)
         {
             anim.SetBool(WALK_ANIMATION, true);
-            sr.flipX = false;
-        }
-        else if (movementX < 0f)
-        {
-            anim.SetBool(WALK_ANIMATION, true);
-            sr.flipX = true;
         }
         else
         {
