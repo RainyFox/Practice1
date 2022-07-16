@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3312477866019572490}
   - component: {fileID: 7615927538830711444}
   - component: {fileID: 1548150557232767942}
-  - component: {fileID: -9624175267792921}
   - component: {fileID: 6778353332111053095}
+  - component: {fileID: -9624175267792921}
   m_Layer: 6
   m_Name: Red Zombie
   m_TagString: Monsters
@@ -129,19 +129,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-9624175267792921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168104012571127988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9d69076ea9c74449a27100eee4ebf28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
 --- !u!60 &6778353332111053095
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -187,3 +174,16 @@ PolygonCollider2D:
       - {x: 0.21499999, y: -1.045}
       - {x: 0.325, y: -0.305}
       - {x: 0.635, y: -0.33499998}
+--- !u!114 &-9624175267792921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168104012571127988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d69076ea9c74449a27100eee4ebf28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
