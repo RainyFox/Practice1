@@ -93,6 +93,7 @@ public class Player1 : MonoBehaviour
         }
         else if (isGrounded)
         {
+            anim.SetBool(JUMP_ANIMATION, false);
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
@@ -131,6 +132,13 @@ public class Player1 : MonoBehaviour
             Debug.Log(life);
             if (life <= 0)
                 Destroy(gameObject);
+
+            //if land on top
+            if (collision.GetContact(0).normal.y >0 )
+            {
+                isGrounded = true;
+            }
+
         }
     }
 }
